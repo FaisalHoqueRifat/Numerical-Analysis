@@ -22,8 +22,21 @@ double bisection(double a, double b, double tol)
 int main()
 {
     double tol = 0.001;
-    cout << "Root 1: " << bisection(0, 1, tol) << endl;
-    cout << "Root 2: " << bisection(1, 2, tol) << endl;
-    cout << "Root 3: " << bisection(2, 3, tol) << endl;
+    double lower = -100, upper = 100, x = 1.0;///boundary and increment
+
+    double x2 = lower, x1 = lower;
+    int i = 1;
+    while(x2 < upper)
+    {
+        x1 = lower, x2 = lower + x;
+        double f1 = f(x1),f2 =f(x2);
+        lower = x2 + 0.000001;
+        if((f1 * f2) > 0)
+        {
+            continue;
+        }
+        cout << " Root "<< i <<" : "<< bisection(x1, x2, tol) << endl ;
+        i++;
+    }
     return 0;
 }

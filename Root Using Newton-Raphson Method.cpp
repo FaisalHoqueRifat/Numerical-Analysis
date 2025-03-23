@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 double f(double x)
@@ -17,15 +17,16 @@ double newtonRaphson(double x0, double tol)
     while (true)
     {
         x1 = x0 - f(x0) / f_prime(x0);
-        if (fabs(x1 - x0) < tol) break;
+        if (fabs(x1 - x0) < tol)
+            break;
         x0 = x1;
     }
     return x1;
 }
 
-int main() 
+int main()
 {
-    double x0 = 1.5, tol = 0.001;
+    double x0 = 0, tol = 0.001;
     cout << "Root: " << newtonRaphson(x0, tol) << endl;
     return 0;
 }
