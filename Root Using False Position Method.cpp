@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 double f(double x)
@@ -6,22 +6,25 @@ double f(double x)
     return x * x * x - x + 2;
 }
 
-double falsePosition(double a, double b, double tol)
+double falsePosition(double x1, double x2, double tol)
 {
-    double c;
-    while ((b - a) > tol)
+    double x0;
+    while ((x2 - x1) > tol)
     {
-        c = (a * f(b) - b * f(a)) / (f(b) - f(a));
-        if (f(c) == 0.0) break;
-        else if (f(c) * f(a) < 0) b = c;
-        else a = c;
+        x0 = x1 - (f(x1) * (x2 - x1)) / (f(x2) - f(x1));
+        if (f(x0) == 0.0)
+            break;
+        else if (f(x0) * f(x1) < 0)
+            x2 = x0;
+        else
+            x1 = x0;
     }
-    return c;
+    return x0;
 }
 
-int main() 
+int main()
 {
-    double a = -3, b = -2, tol = 0.001;
-    cout << "Root: " << falsePosition(a, b, tol) << endl;
+    double x1 = -2, x2 = 2, tol = 0.001;
+    cout << "Root: " << falsePosition(x1, x2, tol) << endl;
     return 0;
 }

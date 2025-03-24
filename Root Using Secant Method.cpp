@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 double f(double x)
@@ -6,22 +6,23 @@ double f(double x)
     return x * x * x - 5 * x * x - 29;
 }
 
-double secant(double x0, double x1, double tol) 
+double secant(double x1, double x2, double tol)
 {
-    double x2;
-    while (true) 
+    double x3;
+    while (true)
     {
-        x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0));
-        if (fabs(x2 - x1) < tol) break;
-        x0 = x1;
+        x3 = x2 - (f(x2) * (x2 - x1)) / (f(x2) - f(x1));
+        if (fabs(x2 - x1) < tol)
+            break;
         x1 = x2;
+        x2 = x3;
     }
     return x2;
 }
 
-int main() 
+int main()
 {
-    double x0 = 3, x1 = 4, tol = 0.001;
-    cout << "Root: " << secant(x0, x1, tol) << endl;
+    double x1 = 4, x2 = 2, tol = 0.001;
+    cout << "Root: " << secant(x1, x2, tol) << endl;
     return 0;
 }
