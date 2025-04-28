@@ -4,10 +4,10 @@ using namespace std;
 vector<int> syntheticDivision(vector<int>& a, int root, int n) 
 {
     vector<int> q(n+1);
-    q[0] = 0;
+    q[0] = a[0];
     for(int i = 1; i<=n; i++)
     {
-        q[i] = a[i-1] + q[i-1]*root;
+        q[i] = a[i] + q[i-1]*root;
     }
     return q;
 }
