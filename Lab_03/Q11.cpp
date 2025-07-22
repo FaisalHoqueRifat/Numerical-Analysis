@@ -16,7 +16,7 @@ int main()
     int max_iter = 100, iter = 0;
 
     while (iter < max_iter)
-    {
+            {
         x_new[0] = (b[0] - a[0][1]*x[1] - a[0][2]*x[2]) / a[0][0];
         x_new[1] = (b[1] - a[1][0]*x[0] - a[1][2]*x[2]) / a[1][1];
         x_new[2] = (b[2] - a[2][0]*x[0] - a[2][1]*x[1]) / a[2][2];
